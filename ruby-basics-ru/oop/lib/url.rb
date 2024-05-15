@@ -29,7 +29,7 @@ class Url
   def ==(other)
     self.url == other.url
   end
-  def_delegators :@attributed_url, :scheme, :host
+  def_delegators :attributed_url, :scheme, :host
 
   class Attribute
     attr_accessor :url
@@ -39,10 +39,10 @@ class Url
     end
 
     def scheme
-      @url.split('://').first
+      url.split('://').first
     end
     def host
-      @url.split('://').last.split('?').first
+      url.split('://').last.split('?').first
     end
   end
 end
