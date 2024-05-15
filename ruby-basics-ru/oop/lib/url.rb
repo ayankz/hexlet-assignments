@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # BEGIN
 require 'forwardable'
-
+require 'uri'
 class Url
   attr_accessor :url
 
@@ -49,5 +49,7 @@ class Url
 end
 
 # END
-url = Url.new 'https://google.com'
-puts url.query_param(:key2, 'lala')
+yandex_url = Url.new 'http://yandex.ru?key=value&key2=value2'
+yandex_url_same = Url.new 'http://yandex.ru?key2=value2&key=value'
+result = yandex_url == yandex_url_same
+puts result
